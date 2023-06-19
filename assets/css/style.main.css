@@ -1,0 +1,124 @@
+@font-face {
+    font-family: nazanin;
+    src: url(../font/Vazir.ttf);
+}
+
+
+body {
+    background: linear-gradient(to right, #fffc00, #ffffff);
+    direction: rtl;
+    font-family: nazanin;
+    font-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-decoration: none;
+}
+
+
+/*
+.div{
+    margin: 3% 15%;
+    display: inline-flex;
+}
+
+.btn{
+    align-items: center;
+    background: linear-gradient(to left,#9c2780,#e040fb);
+    border-radius: 20px;
+    width: 15%;
+    height: 2.4rem;
+    font-size: 1.3rem;
+    border-width: 0px;
+    margin-bottom: 1%;
+}
+.input{
+    border-radius: 5px;
+    height: 1.5rem;
+
+}
+.label{
+    font-size: 1.5rem;
+}
+.notes{
+
+    font-size: 2rem;
+
+    margin: 200px;
+}
+.content{
+    width: 75%;
+    margin-right: 10%;
+
+}
+
+/* .col .row{
+    margin: 100px 2px;
+} */
+
+
+/* table{
+    width: 100%;
+    margin:10% 5%;
+    border: 10px;
+}
+
+.pad{
+    padding: 20px;
+    border: inset;
+    background-color: ghostwhite;
+    text-align: center;
+}
+.btn-info{
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: rgb(7, 151, 50);
+    color: aliceblue;
+    margin: 10px;
+    border-style: outset;
+    border-radius: 7px;
+    text-decoration: none;
+}
+.btn-save{
+    display: inline-block;
+    padding: 9px 14px;
+    background-color: rgb(252, 248, 16);
+    color: rgb(0, 0, 0);
+    margin: 30px auto;
+    border-style: outset;
+    border-radius: 5px;
+    width: 70%;
+    font-size: 1.5rem;
+}
+.btn-danger{
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: rgb(218, 11, 28);
+    color: aliceblue;
+    margin: 10px;
+    border-style: outset;
+    border-radius: 7px;
+    text-decoration: none;
+}
+.list{
+    align-items: center;
+    background: linear-gradient(to left,#9c2780,#e040fb);
+    border-radius: 20px;
+    width: 15%;
+    height: 2.4rem;
+    font-size: 1.3rem;
+    border-width: 0px;
+    margin-bottom: 1%;
+
+} */
+
+
+/* a{
+    text-decoration: none;
+    padding: 2%;
+    color: aliceblue;
+}
+
+.ldiv{
+    display: block;
+    direction: rtl;
+}  */

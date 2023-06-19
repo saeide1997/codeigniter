@@ -1,0 +1,135 @@
+@font-face {
+    font-family: nazanin;
+    src: url(../font/Vazir.ttf);
+}
+body{
+    background: linear-gradient(to right, #fffc00, #ffffff);
+    direction: rtl;
+    font-family: nazanin;
+    font-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-decoration: none;
+}
+
+/* .login-main{
+    font-family: nazanin;
+    direction: rtl;
+    background-color: rgb(255, 220, 246);
+}
+
+.log{
+    color: rgb(223, 28, 223);
+    font-size: 2rem;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+.login{
+    text-align: center;
+    background-color: rgb(255, 253, 250);
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.3);
+    width: 30%;
+    margin-right: 40%;
+    /* margin-top: 7%; */
+    /* border-radius: 20px;
+    
+    
+}
+
+.register-form{
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    border-width: 0px;
+    background-color: rgb(252, 235, 250);
+    width: 60%;
+    height: 3rem;
+}
+.btn-reg{
+    align-items: center;
+    background: linear-gradient(to left,#9c2780,#e040fb);
+    border-radius: 20px;
+    width: 30%;
+    height: 2.4rem;
+    font-size: 1.3rem;
+    border-width: 0px;
+    margin-bottom: 6%;
+}
+
+.forget{
+    padding-bottom: 20%;
+}
+
+.home-main{
+    margin: auto;
+}
+
+ul{
+    list-style-type: none;
+    text-align: right;
+    position: relative;
+    bottom: 20px;
+}
+
+li{
+    display: inline;
+    font-size: 20px;
+    padding: 11px 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 1rem;
+    font-weight: 550;
+    color: beige;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 50px;
+    right: 50px;
+
+
+
+}
+
+.baner{
+    background-image: url(./images/banner2.jpg);
+    width: 100%;
+    height: 800px;
+    background-repeat: round;
+}
+
+.headerlogo{
+    padding: 30px 0px 0px 110px;
+    
+}
+.resmenu{
+    width: 70px;
+    width: 65px;
+    float: right;
+    background-color: blue;
+    position: relative;
+    bottom: 50px;
+
+}
+
+.resnavi{
+    position: relative;
+    display: none;
+}
+
+.rescontent{
+    display: block;
+    float: right;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.rescontent a{
+    color: aliceblue;
+    padding: 11px 15px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.resnavi:hover .rescontent{
+    display: block;
+
+} */
