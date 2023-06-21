@@ -24,12 +24,17 @@ class Login_model extends CI_Model{
                 'login'=>true,
                 'id'=>$id
             );
+
             $this->session->set_userdata($data_session);
             redirect('notes_controller/index');
         }else{
             redirect('login_controller/index');
         }
+    }
 
+	public function is_auth()
+	{
+		return $this->session->userdata('username');
     }
 }
 

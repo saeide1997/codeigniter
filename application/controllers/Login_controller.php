@@ -2,39 +2,38 @@
 
 class Login_controller extends CI_Controller
 {
-    function index()
-    {
-        $this->load->view('login');
-    }
-    function auth(){
-        $this->load->helper('form');
+	function index()
+	{
+		$this->load->view('login');
+	}
 
-        $this->load->library('Form_validation');
+	function auth()
+	{
+		$this->load->helper('form');
 
-        $rules=array(
-                array(
-                        'field'=>'username',
-                        'label'=>'Username',
-                        'rules'=>'required'
-                ),
-                array(
-                        'field'=>'password',
-                        'label'=>'Password',
-                        'rules'=>'required'   
-                ),
+		$this->load->library('Form_validation');
 
-        );
-    $this->form_validation->set_rules($rules);
+		$rules = array(
+			array(
+				'field' => 'username',
+				'label' => 'Username',
+				'rules' => 'required'
+			),
+			array(
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'required'
+			),
 
-    if ($this->form_validation->run() == false) {
-    
-        $this->load->view('login');
-    }
-    
-    
-    }
+		);
+		$this->form_validation->set_rules($rules);
 
-    public function isAuth() {
-        var_dump($this->session->username);
-    }
+		if ($this->form_validation->run() == false) {
+
+			$this->load->view('login');
+		}
+
+
+	}
+
 }

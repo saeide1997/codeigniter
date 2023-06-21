@@ -78,7 +78,7 @@ $db['default'] = array(
 	'hostname' => 'mysql:host=localhost;dbname=notebook',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'notebook',
+	'database' => 'localhost',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
