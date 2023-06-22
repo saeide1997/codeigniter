@@ -9,12 +9,11 @@ class My_controller extends CI_Controller
 	{
 		parent::__construct();
 
-
 		$login = $this->session->userdata('login');
 
-		if (!empty($login)) {
+//		var_dump($login);die();
+		if (!$login) {
 			if ($login != true) {
-
 				redirect('login_controller/index');
 			}
 			// } else {
