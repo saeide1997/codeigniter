@@ -16,23 +16,25 @@
             <?php
             $this->load->helper('form');
 
-            echo form_open('login/auth');
+            echo form_open('register_controller/auth');
 
             $username = form_input(array('name' => 'username', 'placeholder' => 'نام کاربری', 'class' => 'register-form m-2 p-3 border rounded w-50'));
-            $email = form_input(array('name' => 'email', 'placeholder' => 'پست الکترونیکی', 'class' => 'register-form m-2 p-3 border rounded w-50'));
-            $password = form_input(array('name' => 'password', 'placeholder' => 'رمز ورود', 'class' => "register-form m-2 p-3 border rounded w-50"));
-            $repassword = form_input(array('name' => 'repassword', 'placeholder' => 'تکرار رمز ورود', 'class' => "register-form m-2 p-3 border rounded w-50"));
+            $email = form_input(array('name' => 'email', 'type'=>'email', 'placeholder' => 'پست الکترونیکی', 'class' => 'register-form m-2 p-3 border rounded w-50'));
+            $password = form_input(array('name' => 'password', 'type'=>'password','placeholder' => 'رمز ورود', 'class' => "register-form m-2 p-3 border rounded w-50"));
+            $repassword = form_input(array('name' => 'repassword', 'type'=>'password', 'placeholder' => 'تکرار رمز ورود', 'class' => "register-form m-2 p-3 border rounded w-50"));
             $submit = form_submit(array('name' => 'submit', 'value' => 'ثبت نام', 'class' => "btn-reg btn btn-success m-3 text-light"));
 
 
             ?>
             <?php echo $username;
-            echo form_error('username', "<b style='color:red;'>", '</b>') ?>
+            echo form_error('username', "<p style='color:red;'>", '</p>') ?><br>
             <?php echo $email;
-            echo form_error('email', "<b style='color:red;'>", '</b>') ?>
+            echo form_error('email', "<p style='color:red;'>", '</p>') ?><br>
             <?php echo $password;
-            echo form_error('password', "<b style='color:red;'>", '</b>') ?><br>
-            <a class="text-dark m-3"><?= $forget ?></a><br>
+            echo form_error('password', "<p style='color:red;'>", '</p>') ?><br>
+            <?php echo $repassword;
+            echo form_error('repassword', "<p style='color:red;'>", '</p>') ?><br>
+            
             <?= $submit ?>
             <?php echo form_close() ?>
         </div>

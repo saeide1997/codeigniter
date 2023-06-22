@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.reg.css') ?>">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -25,9 +25,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             echo form_open('login_controller/auth');
 
-            $username = form_input(array('name' => 'username', 'placeholder' => 'نام کاربری', 'class' => 'register-form m-2 p-3 border rounded w-50'));
-            $password = form_input(array('name' => 'password', 'placeholder' => 'رمز ورود', 'class' => "register-form m-2 p-3 border rounded w-50"));
-            $submit = form_submit(array('name' => 'submit', 'value' => 'ورود', 'class' => "btn-reg btn btn-success m-3 text-light"));
+            $username = form_input(array('name' => 'username',
+             'placeholder' => 'نام کاربری', 
+             'class' => 'register-form m-2 p-3 border rounded w-50'));
+            $password = form_input(array('name' => 'password',
+             'placeholder' => 'رمز ورود',
+              'class' => "register-form m-2 p-3 border rounded w-50"));
+            $submit = form_submit(array('name' => 'submit',
+             'value' => 'ورود',
+              'class' => "btn-reg btn btn-success m-3 text-light"));
             $remember = form_checkbox('remember', '1');
             $forget = form_label('رمز عبورتان را فراموش کرده اید؟');
 

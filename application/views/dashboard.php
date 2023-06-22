@@ -22,7 +22,7 @@
     <?php
     $this->load->helper('form');
 
-    echo form_open('notes_controller/index');
+    echo form_open('notes_controller/getNotes');
     $button = form_submit(array('name' => 'submit', 'value' => 'یادداشتهای من', 'class' => 'btn btn-warning p-3', 'style' => 'margin-right: 44%; margin-top:2%')); ?>
     <?= $button ?>
     <?php echo form_close(); ?>
