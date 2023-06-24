@@ -34,19 +34,12 @@ class Notes_controller extends My_controller {
             $this->notes_model->addnote($data);
             redirect('Notes_controller/getNotes');
     }
-    function editnote($id){
-        
+    function editnote(){
         $this->load->model('notes_model');
-         $note = $this->notes_model->editnote($id);
-         $data = [
-            'note' => $note
-         ];
-
+         $this->notes_model->editnote();
         
         // $data=$this->notes_model->editnote($id);
         // $this->load->view('notes',['data'=>$data]);
-
-        $this->load->view('edit_notes',$data);
        
 
     }
@@ -65,7 +58,9 @@ class Notes_controller extends My_controller {
     function getNotes(){
         $this->load->model('notes_model');
         $result['data']=$this->notes_model->getNotes();
-        $this->load->view('notes',$result);
+
+        echo json_encode($result);
+        // $this->load->view('notes',$result);
 
     }
 

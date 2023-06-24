@@ -63,43 +63,46 @@ class Login_controller extends CI_Controller
 
 
 
-            } else {
-                $this->load->view('login');
-                echo '<script type="text/javascript">';
-                echo 'alert("نام کاربری یا مز ورود اشتباه است!!!")';
-                echo '</script>';
+			} else {
+				$this->load->view('login');
+				echo '<script type="text/javascript">';
+				echo 'alert("نام کاربری یا مز ورود اشتباه است!!!")';
+				echo '</script>';
 
+			}
+			// $user = $this->db->get_where('register', array('username' => $username, 'password' => $password));
+			// $is = $user->num_rows(); //if num_row>0 = user exist.
             }
             // $user = $this->db->get_where('register', array('username' => $username, 'password' => $password));
             // $is = $user->num_rows(); //if num_row>0 = user exist.
 
-            // if ($is > 0) {
-            //     $id = $user->row(0)->id;
-            //     $data_session = array(
-            //         'username' => $_POST['username'],
-            //         'login' => true,
-            //         'id' => $id
-            //     );
-            //     $this->session->set_userdata($data_session);
-            // if ($remember == 1) {
-            //     $data_cookie = array(
-            //         'name' => 'usernote',
-            //         'value' => '{$username}_islogin_{$id}',
-            //         'expire' => time() + 60 * 60 * 24 * 365
+			// if ($is > 0) {
+			//     $id = $user->row(0)->id;
+			//     $data_session = array(
+			//         'username' => $_POST['username'],
+			//         'login' => true,
+			//         'id' => $id
+			//     );
+			//     $this->session->set_userdata($data_session);
+			// if ($remember == 1) {
+			//     $data_cookie = array(
+			//         'name' => 'usernote',
+			//         'value' => '{$username}_islogin_{$id}',
+			//         'expire' => time() + 60 * 60 * 24 * 365
 
-            //     );
-            //     $this->input->set_cookie($data_cookie);
-            // }
-            // redirect('notes_controller/index');
-            // } else {
-            //     redirect('login_controller/index');
-            // }
+			//     );
+			//     $this->input->set_cookie($data_cookie);
+			// }
+			// redirect('notes_controller/index');
+			// } else {
+			//     redirect('login_controller/index');
+			// }
 
-        }
-    }
-    function logout()
+		}
+	function logout()
     {
         $this->load->model('logout_model');
         $this->logout_model->logout();
     }
-}
+    }
+    
