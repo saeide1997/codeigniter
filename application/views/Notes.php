@@ -16,10 +16,18 @@
 
 <body>
     <div>
+        <ul style=" float: left; display: inline-flex; margin-bottom: 5%;" >
+            <li style="" class="d-block" >
+            <a class="btn btn-outline-warning m-4 p-3 " href="<?= base_url('index.php/notes_controller/addnote') ?>">افزودن یادداشت</a>
+            </li>
+            <li class="d-block">
+            <a class="btn btn-outline-danger m-4 p-3" href="<?= base_url('index.php/login_controller/logout') ?>">خروج از حساب کاربری</a>
+            </li>
+        </ul>
         <div>
 
-            <table class="table border striped">
-                <tr>
+            <table style="margin-right: 12%;" class="table  table-striped w-75 ">
+                <tr class="bg-light" >
                     <th>
                         عنوان یادداشت
                     </th>
@@ -36,8 +44,10 @@
                 <?php
                 
                 $query = $this->db->get('note');
+                $data=$query->result();
 
-                foreach ($query->result() as $row): ?>
+                foreach ($data as $row): ?>
+                
                     <tr>
                         <td>
                             <?php echo $row->title; ?>
@@ -49,8 +59,8 @@
                             <?php echo $row->date; ?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-warning" >ویرایش</a>
-                            <a href="" class="btn btn-danger" >حذف</a>
+                            <a href="<?= base_url('index.php/notes_controller/editnote/'.$row->id) ?>"  class="btn btn-warning" >ویرایش</a>
+                            <a href="<?= base_url('index.php/notes_controller/deletnote/'.$row->id) ?>" class="btn btn-danger" >حذف</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

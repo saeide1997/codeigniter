@@ -18,20 +18,22 @@
     <div class="d-flex align-items-center flex-row wp-row">
         <div class="wp-row w-50 m-5 p-2 ">
             <button class="btn btn-warning  p-3"><a style="color:white;text-decoration: none;" class="h4"
-                    href="?module=notes&action=items">مشاهده یادداشتها</a></button>
+                    href="<?= base_url('index.php/notes_controller/getNotes') ?>">مشاهده یادداشتها</a></button>
         </div>
         <div class="div container  m-5 wp-row">
             <?php
-            $this->load->helper('form');
-            $this->load->helper('date');
 
-            echo form_open('notes_controller/add');
+            // var_dump($note->title);die();
+           
+            echo form_open('notes_controller/setnote/'.$note->id);
+    
 
             $title = form_input(
                 array(
                     'name' => 'title',
                     'placeholder' => 'عنوان یادداشت خود را وارد کنید.....',
-                    'class' => 'form p-2 m-2 input border rounded bg-light w-50'
+                    'class' => 'form p-2 m-2 input border rounded bg-light w-50',
+                    'value'=> $note->title
                 )
             );
             $desc = form_textarea(
@@ -40,7 +42,8 @@
                     'placeholder' => 'شرح یادداشت خود را وارد کنید.....',
                     'cols' => '30',
                     'rows' => '5',
-                    'class' => 'border rounded bg-light w-50 m-2'
+                    'class' => 'border rounded bg-light w-50 m-2',
+                    'value' => $note->description
                 )
             );
             ?>
@@ -49,9 +52,9 @@
             <label class="label h4 p-2">شرح یادداشت:</label><br>
             <?php echo $desc ?><br>
             <label class="h4 p-2">تاریخ ایجاد یادداشت:</label><br>
-            <input class="border rounded bg-light p-2 m-2" type="date" name="date"><br>
+            <input class="border rounded bg-light p-2 m-2" value="<?= $note->date ?>" type="date" name="date"><br>
             
-            <input class="btn btn-success p-3 m-2" type="submit" value="افزودن یادداشت">
+            <input class="btn btn-success p-3 m-2" type="submit" value="ویرایش یادداشت">
         </div>
         
     </div>

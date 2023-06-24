@@ -12,14 +12,16 @@ class My_controller extends CI_Controller
 
         $login = $this->session->userdata('login');
 
-        if (!empty($login)) {
+        if (!$login) {
             if ($login != true) {
 
                 redirect('login_controller/index');
             }
         // } else {
         //     redirect('login_controller/index');
-        // }
+        }
+    // $s = $this->session->userdata();
+    // var_dump($s);
     
     $this->username = $this->session->userdata('username');
     $this->user_id = $this->session->userdata('id');
@@ -33,5 +35,5 @@ class My_controller extends CI_Controller
     //     }
 
 } 
-    }
+    
 }

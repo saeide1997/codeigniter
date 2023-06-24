@@ -10,7 +10,6 @@ class Login_controller extends CI_Controller
     function index()
     {
         $this->load->view('login');
-    //     
     }
     function auth()
     {
@@ -29,40 +28,47 @@ class Login_controller extends CI_Controller
                 'label' => 'Password',
                 'rules' => 'required'
             ),
-
         );
         $this->form_validation->set_rules($rules);
-
         if ($this->form_validation->run() == false) {
-
             $this->load->view('login');
         } else {
             $username = $this->input->post('username', true); //true for forbiding xss attacks
             $password = $this->input->post('password', true);
             $remember = $this->input->post('remember', true);
-            $this->db->select('username', 'password');
-            $this->db->where('username', $username);
-            $this->db->where('password', $password);
-            $this->db->from('register');
-            $this->db->limit(1);
-            $is = $this->db->count_all_results();
-            if ($is == 1) {
-                $data_session=array(
-                    'username'=>$username,
-                    'login'=>true
+            // $this->db->select(['username', 'password']);
+            // $this->db->where('username', $username);
+            // $this->db->where('password', $password);
+            // $this->db->from('register');
+            // $this->db->limit(1);
+
+            $user = $this->db->get_where(
+                'register',
+                array(
+                    'username' => $username,
+                    'password' => $password
+                )
+            );
+            $is = $user->num_rows();
+            if ($is) {
+                $id = $user->row(0)->id;
+                $data_session = array(
+                    'username' => $username,
+                    'login' => true,
+                    'id' => $id
                 );
                 $this->session->set_userdata($data_session);
-                
+
                 redirect('notes_controller/index');
-                
-                
+
+
 
             } else {
                 $this->load->view('login');
                 echo '<script type="text/javascript">';
                 echo 'alert("نام کاربری یا مز ورود اشتباه است!!!")';
                 echo '</script>';
-                
+
             }
             // $user = $this->db->get_where('register', array('username' => $username, 'password' => $password));
             // $is = $user->num_rows(); //if num_row>0 = user exist.
@@ -91,5 +97,9 @@ class Login_controller extends CI_Controller
 
         }
     }
-
+    function logout()
+    {
+        $this->load->model('logout_model');
+        $this->logout_model->logout();
+    }
 }
