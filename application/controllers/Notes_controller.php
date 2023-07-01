@@ -14,13 +14,11 @@ class Notes_controller extends My_controller {
     }
     
     function index(){
-    //     $this->load->model('itemsmodel','item');
-    //     $notes=$this->item->getNotes();
-    //     print_r($notes);
-    // }
-    $this->load->view('notes');
-    // $name=$this->session->userdata('username');
-    // echo "$name+''+عزیز خوش آمدید :)" ;
+
+		$query = $this->db->get('note');
+		$notes = $query->result_array();
+    	$this->load->view('notes');
+
     }
     // function addnote(){
     //     $this->load->view('add_notes');
@@ -28,8 +26,9 @@ class Notes_controller extends My_controller {
     // }
     function getNotes(){
         $this->load->model('notes_model');
-         $this->notes_model->getNotes();
-         $this->load->view('notes');
+	 	$result =$this->notes_model->getNotes();
+
+		echo json_encode($result);
 
     }
     function add(){
@@ -40,26 +39,16 @@ class Notes_controller extends My_controller {
             $this->notes_model->addnote($data);
             redirect('Notes_controller/getNotes');
     }
-    function editnote(){
+    function saveNote(){
         $this->load->model('notes_model');
-         $this->notes_model->editnote();
-        
-        // $data=$this->notes_model->editnote($id);
-        // $this->load->view('notes',['data'=>$data]);
-       
-
-    }
-    function setnote($id){
-        $this->load->model('notes_model');
-         $this->notes_model->setnote($id);
-         redirect('Notes_controller/getNotes');
-         
-        
+	 	$note = $this->notes_model->setnote();
+		echo 200;
     }
     function deletnote($id){
         $this->load->model('notes_model');
         $this->notes_model->deletnote($id);
     }
+
     
 
 

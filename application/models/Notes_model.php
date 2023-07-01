@@ -16,9 +16,7 @@ class Notes_model extends CI_Model
 
         // $this->db->get('note');
         $query = $this->db->get('note');
-        return json_encode($query->result());
-
-
+        return $query->result();
     }
 
     function addnote()
@@ -45,34 +43,29 @@ class Notes_model extends CI_Model
         // }
         return json_encode($this->db->insert('note', $data));
     }
-    function editnote($id)
-    {
-        $this->load->helper('form');
-        $this->load->helper('date');
-        $query = $this->db->where('id',$id)->get('note');
-        $data=$query->row();
 
-
-        return json_encode($data);
-
-    }
-    function setnote($id)
+    function setnote()
     {
         $title = $this->input->post('title', true); //true for forbiding xss attacks
         $desc = $this->input->post('description', true);
         $date = $this->input->post('date', true); //true for forbiding xss attacks
+		$edit_id = $this->input->post('editID', true);
 
-        $data = array(
-            'title' => $title,
-            'description' => $desc,
-            'date' => $date,
-            'id' => $id
-        );
-        $this->db->where('id', $id);
-        return json_encode($this->db->update('note', $data));
+		$data = array(
+			'title' => $title,
+			'description' => $desc,
+			'date' => $date,
+		);
+
+		if ($edit_id == '') {
+			$res = $this->db->insert('note',$data);
+		}else{
+			$this->db->where('id', $edit_id);
+			$res = $this->db->update('note', $data);
+		}
+		return $res;
         
     }
-
 
     function deletnote($id)
     {
