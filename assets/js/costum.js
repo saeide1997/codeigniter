@@ -30,7 +30,7 @@ function fetchNotes() {
                 <td class="pad desc">${item.description}</td>
                 <td class="pad date">${item.date}</td>
                 <td class="pad">
-                <input type="button" id="edit" class="btn btn-warning editme"  data-id="${item.id}" data-bs-toggle="modal" data-bs-target="#exampleModal1" value="ویرایش">
+                <input type="button" id="edit" class="btn btn-warning edit" data-bs-toggle="modal" data-bs-target="#myModal" data-id="${item.id}" value="ویرایش">
                 <input type="button" id="deleteNote" class="btn btn-danger" data-id="${item.id}" value="حذف">
         
                 </td>
@@ -54,16 +54,13 @@ $(document).ready(function () {
 
     fetchNotes()
 
-    // $(document).on("click", ".editme", function () {
-    //     alert('sa')
-    //     // $('#exampleModal').modal("show")
-        
-        
-
-           
-
-        
-    // });
+    $(document).on("click", ".edit", function () {
+		$('#exampleModalLabel').html("ویرایش یادداشت")
+		$(".form").attr("id", "updateNote"),
+			$("input[name='action']").attr("value", "updateNote"),
+			$("input[name='data[id]").val($(this).data('id')),
+			$("button[id='re-edit']").html("ویرایش یادداشت")
+    });
 
     $(document).on("click", "#ddd", function () {
         $('#exampleModalLabel').html("افزودن یادداشت")

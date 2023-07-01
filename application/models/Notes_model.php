@@ -16,7 +16,7 @@ class Notes_model extends CI_Model
 
         // $this->db->get('note');
         $query = $this->db->get('note');
-        return $query->result();
+        return json_encode($query->result());
 
 
     }
@@ -43,7 +43,7 @@ class Notes_model extends CI_Model
         // if ($row == 1) {
         //     redirect('notes_controller/index');
         // }
-        $this->db->insert('note', $data);
+        return json_encode($this->db->insert('note', $data));
     }
     function editnote($id)
     {
@@ -53,7 +53,7 @@ class Notes_model extends CI_Model
         $data=$query->row();
 
 
-        return $data;
+        return json_encode($data);
 
     }
     function setnote($id)
@@ -69,8 +69,8 @@ class Notes_model extends CI_Model
             'id' => $id
         );
         $this->db->where('id', $id);
-        $res = $this->db->update('note', $data);
-        redirect('Notes_controller/getNotes');
+        return json_encode($this->db->update('note', $data));
+        
     }
 
 

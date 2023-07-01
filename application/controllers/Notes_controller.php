@@ -22,9 +22,15 @@ class Notes_controller extends My_controller {
     // $name=$this->session->userdata('username');
     // echo "$name+''+عزیز خوش آمدید :)" ;
     }
-    function addnote(){
-        $this->load->view('add_notes');
+    // function addnote(){
+    //     $this->load->view('add_notes');
         
+    // }
+    function getNotes(){
+        $this->load->model('notes_model');
+         $this->notes_model->getNotes();
+         $this->load->view('notes');
+
     }
     function add(){
         $this->load->model('notes_model');
@@ -46,6 +52,7 @@ class Notes_controller extends My_controller {
     function setnote($id){
         $this->load->model('notes_model');
          $this->notes_model->setnote($id);
+         redirect('Notes_controller/getNotes');
          
         
     }
@@ -55,13 +62,6 @@ class Notes_controller extends My_controller {
     }
     
 
-    function getNotes(){
-        $this->load->model('notes_model');
-        $result['data']=$this->notes_model->getNotes();
 
-        echo json_encode($result);
-        // $this->load->view('notes',$result);
-
-    }
 
 }
